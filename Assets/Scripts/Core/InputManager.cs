@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private DockManager dockManager;
 
     private Item currentSelectedItem;
 
@@ -39,5 +40,11 @@ public class InputManager : MonoBehaviour
         }
         currentSelectedItem = item;
         currentSelectedItem.SetSelected(true);
+
+        bool addedToDock = dockManager.TryAddItem(item);
+        if (addedToDock)
+        {
+            Debug.Log("Selected item:" + item.ItemData.DisplayName);
+        }
     }
 }
