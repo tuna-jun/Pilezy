@@ -6,11 +6,14 @@ public class Item : MonoBehaviour
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Color selectedColor = Color.red;
+
+    private bool isInDock;
     public ItemData ItemData => itemData;
+    public bool IsInDock => isInDock;
 
     private void Awake()
     {
-        if(meshRenderer == null)
+        if (meshRenderer == null)
         {
             meshRenderer = GetComponent<MeshRenderer>();
         }
@@ -19,10 +22,15 @@ public class Item : MonoBehaviour
 
     public void SetSelected(bool isSelected)
     {
-        if(meshRenderer == null)
+        if (meshRenderer == null)
         {
             return;
         }
         meshRenderer.material.color = isSelected ? selectedColor : normalColor;
+    }
+
+    public void SetInDock(bool value)
+    {
+        isInDock = value;
     }
 }

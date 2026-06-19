@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
 
             Item item = hit.collider.GetComponent<Item>();
 
-            if (item != null)
+            if (item != null && !item.IsInDock)
             {
                 SelectItem(item);
             }
