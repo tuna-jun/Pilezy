@@ -287,6 +287,50 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &463798644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463798646}
+  - component: {fileID: 463798645}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &463798645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463798644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e5f1402bf217440abdd8aa2cc676f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+--- !u!4 &463798646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463798644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00385, y: -0.02482, z: -1.28979}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &530566755
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
   mainCamera: {fileID: 174504591}
   dockManager: {fileID: 1893712172}
+  gameManager: {fileID: 463798645}
 --- !u!1 &1541558693
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +1024,7 @@ MonoBehaviour:
   - {fileID: 1541558694}
   - {fileID: 530566756}
   - {fileID: 1554118588}
+  gameManager: {fileID: 463798645}
 --- !u!4 &1893712173
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,9 +1069,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c13f43e75013946b5676c38d30bdbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestSpawner
-  itemPrefabs: {fileID: 361604564219474495, guid: e287b835dbff0194295378ed222d5e0f, type: 3}
+  itemPrefabs:
+  - {fileID: 1497535130131473901, guid: 53933aa69fab10f4e91ff1badc359b4d, type: 3}
+  - {fileID: 361604564219474495, guid: e287b835dbff0194295378ed222d5e0f, type: 3}
+  - {fileID: 9081278142315392162, guid: 4692b30914e51aa498eefaebc0578aa8, type: 3}
+  - {fileID: 3894928618641148400, guid: b1c653cd33ae5d54d8e38274e346fa93, type: 3}
   spawnRoot: {fileID: 1802715779}
-  spawnCount: 10
+  spawnCount: 20
   spawnArea: {x: 3, y: 2, z: 3}
 --- !u!4 &2054373919
 Transform:
@@ -1079,6 +1129,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 174504592}
   - {fileID: 1677137017}
+  - {fileID: 463798646}
   - {fileID: 1498784076}
   - {fileID: 1802715779}
   - {fileID: 2054373919}

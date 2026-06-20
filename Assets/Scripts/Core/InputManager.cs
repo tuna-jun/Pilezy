@@ -5,11 +5,17 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     [SerializeField] private DockManager dockManager;
+    [SerializeField] private GameManager gameManager;
 
     private Item currentSelectedItem;
 
     private void Update()
     {
+        if (gameManager.IsGameOver)
+        {
+            return;
+        }
+
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame)
         {
             TrySelectItem(Pointer.current.position.ReadValue());

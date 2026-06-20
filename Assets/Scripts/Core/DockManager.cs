@@ -6,6 +6,7 @@ public class DockManager : MonoBehaviour
 {
     [SerializeField] private int maxSlots = 7;
     [SerializeField] private Transform[] dockSlots;
+    [SerializeField] private GameManager gameManager;
 
     private readonly List<Item> dockItems = new List<Item>();
 
@@ -20,12 +21,10 @@ public class DockManager : MonoBehaviour
 
         if (IsFull)
         {
-            Debug.Log("Dock full");
             return false;
         }
         if(dockItems.Contains(item))
         {
-            Debug.Log("Item already");
             return false;
         }
 
@@ -33,7 +32,12 @@ public class DockManager : MonoBehaviour
         item.SetInDock(true);
 
         RefreshDockPositions();
-        CheckMatch(item);
+
+        bool hasMatch = CheckMatch(item);
+        if(!hasMatch && IsFull)
+        {
+            gameManager.LoseGame();
+        }
 
         Debug.Log("Added to dock: " + item.ItemData.DisplayName);
         Debug.Log("Dock count: " + dockItems.Count);
@@ -41,7 +45,7 @@ public class DockManager : MonoBehaviour
         return true;
     }
 
-    private void CheckMatch(Item addedItem)
+    private bool CheckMatch(Item addedItem)
     {
         List<Item> sameTypeItems = new List<Item>();
 
@@ -55,7 +59,9 @@ public class DockManager : MonoBehaviour
         if (sameTypeItems.Count >= 3)
         {
             RemoveMatchedItems(sameTypeItems);
+            return true;
         }
+        return false;
     }
 
     private void RemoveMatchedItems(List<Item> matchedItems)
