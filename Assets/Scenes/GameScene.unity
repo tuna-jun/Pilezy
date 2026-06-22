@@ -287,6 +287,58 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &256532717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 256532719}
+  - component: {fileID: 256532718}
+  m_Layer: 0
+  m_Name: GoalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &256532718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256532717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf6d98903aa0ca4ab92f8af63acc267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GoalManager
+  gameManager: {fileID: 463798645}
+  goals:
+  - itemData: {fileID: 11400000, guid: 4d268bcb94d62f5478293737a98aaf29, type: 2}
+    requiredCount: 3
+    currentCount: 0
+  - itemData: {fileID: 11400000, guid: 9f38b39bed6cd774cb56d13bee74b9f6, type: 2}
+    requiredCount: 3
+    currentCount: 0
+--- !u!4 &256532719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256532717}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00385, y: -0.02482, z: -1.28979}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &463798644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1077,7 @@ MonoBehaviour:
   - {fileID: 530566756}
   - {fileID: 1554118588}
   gameManager: {fileID: 463798645}
+  goalManager: {fileID: 256532718}
 --- !u!4 &1893712173
 Transform:
   m_ObjectHideFlags: 0
@@ -1130,6 +1183,7 @@ SceneRoots:
   - {fileID: 174504592}
   - {fileID: 1677137017}
   - {fileID: 463798646}
+  - {fileID: 256532719}
   - {fileID: 1498784076}
   - {fileID: 1802715779}
   - {fileID: 2054373919}

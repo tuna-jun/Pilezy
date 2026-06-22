@@ -7,6 +7,7 @@ public class DockManager : MonoBehaviour
     [SerializeField] private int maxSlots = 7;
     [SerializeField] private Transform[] dockSlots;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GoalManager goalManager;
 
     private readonly List<Item> dockItems = new List<Item>();
 
@@ -66,6 +67,8 @@ public class DockManager : MonoBehaviour
 
     private void RemoveMatchedItems(List<Item> matchedItems)
     {
+        ItemData matchedItemData = matchedItems[0].ItemData;
+
         for (int i = 0; i<3; i++)
         {
             Item item = matchedItems[i];
@@ -73,6 +76,8 @@ public class DockManager : MonoBehaviour
             dockItems.Remove(item);
             Destroy(item.gameObject);
         }
+
+        goalManager.AddClearedItems(matchedItemData, 3);
 
         RefreshDockPositions();
 
