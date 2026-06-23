@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class TestSpawner : MonoBehaviour
 {
-    [SerializeField] private Item[] itemPrefabs;
+    [SerializeField] private LevelData levelData;
     [SerializeField] private Transform spawnRoot;
-    [SerializeField] private int spawnCount = 20;
     [SerializeField] private Vector3 spawnArea = new Vector3(3f, 2f, 3f);
 
     private void Start()
@@ -14,20 +13,16 @@ public class TestSpawner : MonoBehaviour
 
     private void SpawnItems() 
     { 
-        for ( int i  = 0; i < spawnCount; i++ )
+        for ( int i  = 0; i < levelData.SpawnItems.Count; i++ )
         {
-            Item randomPrefab = GetRandomItemPrefab();
-            Vector3 randomPosition = GetRandomSpawnPosition();
+            LevelItemEntry entry = levelData.SpawnItems[i];
            
-
-            Instantiate (randomPrefab, randomPosition, Quaternion.identity, spawnRoot);
+            for(int j = 0; j < entry.Count; j++)
+            {
+                Vector3 randomPosition = GetRandomSpawnPosition();
+                Instantiate(entry.ItemPrefab, randomPosition, Quaternion.identity, spawnRoot);
+            }
         }
-    }
-
-    private Item GetRandomItemPrefab()
-    {
-        int randomIndex = Random.Range(0, itemPrefabs.Length);
-        return itemPrefabs[randomIndex];
     }
     private Vector3 GetRandomSpawnPosition()
     {
