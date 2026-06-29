@@ -7,12 +7,14 @@ public class GoalManager : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private LevelData levelData;
+    [SerializeField] private UIManager uiManager;
 
     private readonly List<GoalEntry> goals = new List<GoalEntry>();
 
     private void Start()
     {
         LoadGoals();
+        uiManager.UpdateGoals(goals);
     }
     public void AddClearedItems(ItemData itemData, int count)
     {
@@ -23,6 +25,7 @@ public class GoalManager : MonoBehaviour
         }
 
         goal.AddProgress(count);
+        uiManager.UpdateGoals(goals);
         if (AreAllGoalsCompleted())
         {
             gameManager.WinGame();

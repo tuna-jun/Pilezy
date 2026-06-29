@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d711db87e293a346ac95cbad4744f48, type: 3}
   m_Name: Level_01
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  spawnItems: []
-  goals: []
+  spawnItems:
+  - itemPrefab: {fileID: 361604564219474495, guid: e287b835dbff0194295378ed222d5e0f, type: 3}
+    count: 9
+  - itemPrefab: {fileID: 1497535130131473901, guid: 53933aa69fab10f4e91ff1badc359b4d, type: 3}
+    count: 9
+  - itemPrefab: {fileID: 3894928618641148400, guid: b1c653cd33ae5d54d8e38274e346fa93, type: 3}
+    count: 6
+  - itemPrefab: {fileID: 9081278142315392162, guid: 4692b30914e51aa498eefaebc0578aa8, type: 3}
+    count: 6
+  goals:
+  - itemData: {fileID: 11400000, guid: 4d268bcb94d62f5478293737a98aaf29, type: 2}
+    requiredCount: 9
+  - itemData: {fileID: 11400000, guid: 9f38b39bed6cd774cb56d13bee74b9f6, type: 2}
+    requiredCount: 9

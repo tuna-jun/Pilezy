@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private UIManager uiManager;
+
     private bool isGameOver;
     public bool IsGameOver => isGameOver;
 
@@ -13,6 +15,7 @@ public class GameManager : MonoBehaviour
         }
         isGameOver = true;
         Debug.Log("Win");
+        uiManager.ShowWin();
     }
     
     public void LoseGame()
@@ -23,5 +26,6 @@ public class GameManager : MonoBehaviour
         }
         isGameOver = true;
         Debug.Log("Lose");
+        uiManager.ShowLose();
     }
 }

@@ -8,11 +8,16 @@ public class DockManager : MonoBehaviour
     [SerializeField] private Transform[] dockSlots;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GoalManager goalManager;
+    [SerializeField] private UIManager uiManager;
 
     private readonly List<Item> dockItems = new List<Item>();
 
     public bool IsFull => dockItems.Count >= maxSlots;
 
+    private void Start()
+    {
+        uiManager.UpdateDockCount(dockItems.Count, maxSlots);
+    }
     public bool TryAddItem(Item item)
     {
         if(item == null)
@@ -33,6 +38,7 @@ public class DockManager : MonoBehaviour
         item.SetInDock(true);
 
         RefreshDockPositions();
+        uiManager.UpdateDockCount(dockItems.Count, maxSlots);
 
         bool hasMatch = CheckMatch(item);
         if(!hasMatch && IsFull)
@@ -80,7 +86,7 @@ public class DockManager : MonoBehaviour
         goalManager.AddClearedItems(matchedItemData, 3);
 
         RefreshDockPositions();
-
+        uiManager.UpdateDockCount(dockItems.Count, maxSlots);
     }
 
     private void RefreshDockPositions()
